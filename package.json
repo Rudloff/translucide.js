@@ -1,0 +1,15 @@
+{
+    "name": "translucide ",
+    "main": "main.js",
+    "description": "Easily search info on https://www.transparence.sante.gouv.fr/",
+    "repository": "https://github.com/Rudloff/translucide.js",
+    "contributors": [
+        {
+            "name": "Pierre Rudloff",
+            "email": "contact@rudloff.pro"
+        }
+    ],
+    "dependencies": {
+        "casperjs": "*"
+    }
+}
