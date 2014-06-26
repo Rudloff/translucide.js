@@ -12,8 +12,8 @@ You need to install CasperJS first: ```sudo npm install -g casperjs```
 ```casperjs translucide.js DoctorName [student]```
 
 _DoctorName_ is the surname of the doctor you want information about.
-For example : ```casperjs translucide.js Martin```
+For example : ```casperjs translucide.js Dupond```
 
-It will return the 20 first lines matching this name.
+It will return all the results matching this name.
 
 If you want to search information about a student, not a doctor, just add _student_ after the name : ```casperjs translucide.js Martin student```
