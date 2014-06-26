@@ -1,4 +1,19 @@
 translucide.js
 ==============
 
-Easily search info on https://www.transparence.sante.gouv.fr/
+**translucide.js** allows you to search information about doctors on https://www.transparence.sante.gouv.fr/.
+It mainly saves you the hassle of filling a captcha everytime you want to search something.
+
+
+## Dependencies
+You need to install CasperJS first: ```sudo npm install -g casperjs```
+
+##Usage
+```casperjs translucide.js DoctorName [student]```
+
+_DoctorName_ is the surname of the doctor you want information about.
+For example : ```casperjs translucide.js Martin```
+
+It will return the 20 first lines matching this name.
+
+If you want to search information about a student, not a doctor, just add _student_ after the name : ```casperjs translucide.js Martin student```
