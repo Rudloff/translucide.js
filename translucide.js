@@ -29,8 +29,8 @@ function clickCheckBoxes() {
     } else {
         fieldset = 'fieldset:first-of-type';
     }
-    if (this.exists('#j_idt74 ' + fieldset + ' .section-recipient tbody tr')) {
-        results = this.getElementsInfo('#j_idt74 ' + fieldset + ' .section-recipient tbody tr');
+    if (this.exists('#j_idt75 ' + fieldset + ' .section-recipient tbody tr')) {
+        results = this.getElementsInfo('#j_idt75 ' + fieldset + ' .section-recipient tbody tr');
         for (i = 1; i <= results.length; i += 1) {
             this.click(fieldset + ' tr:nth-child(' + i + ') input[type="checkbox"]');
         }
@@ -39,7 +39,7 @@ function clickCheckBoxes() {
             page += 1;
             this.waitForSelector(fieldset + ' .btn-page input[value="' + page + '"]:disabled', clickCheckBoxes);
         } else {
-            this.click('input[name="j_idt74:j_idt194"]');
+            this.click('input[name="j_idt75:j_idt207"]');
             page = 1;
             this.echo('Fetching results…');
         }
@@ -57,11 +57,11 @@ if (casper.cli.args[0]) {
 
     casper.waitForSelector('.label-captcha', function () {
         var matches = this.getElementInfo('.label-captcha').text.match(new RegExp('Quelle est la (.*) lettre du mot « (.*) »'));
-        this.fill('form[id="j_idt62"]', { 'j_idt62:captcha': matches[2].substr(matches[1].replace(new RegExp('ème|ère'), '') - 1, 1) }, false);
-        this.click('input[name="j_idt62:j_idt70"]');
+        this.fill('form[id="j_idt63"]', { 'j_idt63:captcha': matches[2].substr(matches[1].replace(new RegExp('ème|ère'), '') - 1, 1) }, false);
+        this.click('input[name="j_idt63:j_idt71"]');
     });
 
-    casper.waitForSelector('#j_idt74', clickCheckBoxes);
+    casper.waitForSelector('#j_idt75', clickCheckBoxes);
 
     casper.waitForSelector('table[id="j_idt17:dataTable"]', nextPage);
     casper.run();
