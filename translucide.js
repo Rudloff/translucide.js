@@ -50,16 +50,22 @@ function clickCheckBoxes() {
 }
 
 if (casper.cli.args[0]) {
-    casper.start('https://www.transparence.sante.gouv.fr/flow/rechercheBeneficiaires', function () {
-        this.fill('form[id="form"]', { 'form:nom-autocomplete': casper.cli.args[0] }, false);
-        this.click('.btn-action');
-    });
+    casper.start(
+        'https://www.transparence.sante.gouv.fr/flow/rechercheBeneficiaires',
+        function () {
+            this.fill('form[id="form"]', { 'form:nom-autocomplete': casper.cli.args[0] }, false);
+            this.click('.btn-action');
+        }
+    );
 
-    casper.waitForSelector('.label-captcha', function () {
-        var matches = this.getElementInfo('.label-captcha').text.match(new RegExp('Quelle est la (.*) lettre du mot « (.*) »'));
-        this.fill('form[id="j_idt63"]', { 'j_idt63:captcha': matches[2].substr(matches[1].replace(new RegExp('ème|ère'), '') - 1, 1) }, false);
-        this.click('input[name="j_idt63:j_idt71"]');
-    });
+    casper.waitForSelector(
+        '.label-captcha',
+        function () {
+            var matches = this.getElementInfo('.label-captcha').text.match(new RegExp('Quelle est la (.*) lettre du mot « (.*) »'));
+            this.fill('form[id="j_idt63"]', { 'j_idt63:captcha': matches[2].substr(matches[1].replace(new RegExp('ème|ère'), '') - 1, 1) }, false);
+            this.click('input[name="j_idt63:j_idt71"]');
+        }
+    );
 
     casper.waitForSelector('#j_idt75', clickCheckBoxes);
 
